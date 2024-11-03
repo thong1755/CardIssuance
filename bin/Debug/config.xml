@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DatabaseConfig>
+    <Credentials>
+        <IP>127.0.0.1</IP>
+        <User>root</User>
+        <Pass>123456</Pass>
+        <PassDatabase>lambada@1488</PassDatabase>
+    </Credentials>
+</DatabaseConfig>
