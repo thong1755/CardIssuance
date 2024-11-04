@@ -182,8 +182,8 @@ namespace CardIssuance.Database
                 MySQLConn();
                 m_MysqlConn.Open();
 
-                string query = "INSERT INTO thecantudong (mathe, khachhang, loaihang, dongia, nguoican, laixe, chungtu, ngaycapthe) " +
-                               "VALUES (@mathe, @khachhang, @loaihang, @dongia, @nguoican, @laixe, @chungtu, @ngaycapthe)";
+                string query = "INSERT INTO thecantudong (mathe, khachhang, loaihang, dongia, nguoican, laixe, chungtu, ngaycapthe, loaican) " +
+                               "VALUES (@mathe, @khachhang, @loaihang, @dongia, @nguoican, @laixe, @chungtu, @ngaycapthe, @loaican)";
 
                 MySqlCommand cmd = new MySqlCommand(query, m_MysqlConn);
 
@@ -195,6 +195,7 @@ namespace CardIssuance.Database
                 cmd.Parameters.AddWithValue("@laixe", theTuDong.LaiXe);
                 cmd.Parameters.AddWithValue("@chungtu", theTuDong.ChungTu);
                 cmd.Parameters.AddWithValue("@ngaycapthe", theTuDong.NgayCapThe);
+                cmd.Parameters.AddWithValue("@loaican", theTuDong.LoaiCan);
 
                 cmd.ExecuteNonQuery();
                 return true; // Thêm thành công
@@ -268,6 +269,101 @@ namespace CardIssuance.Database
             {
                 m_MysqlConn.Close();
             }
+        }
+
+        public DataTable SearchCard(string cardNumber)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                MySQLConn();
+                m_MysqlConn.Open();
+
+                string query = "SELECT ID, mathe, khachhang, loaihang, nguoican, laixe, chungtu, dongia, ngaycapthe, sophieu, loaican FROM thecantudong WHERE mathe = @cardNumber;";
+
+                MySqlCommand cmd = new MySqlCommand(query, m_MysqlConn);
+                cmd.Parameters.AddWithValue("@cardNumber", cardNumber);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                dt.Columns.Add("Index");
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    dt.Rows[i]["Index"] = (i + 1).ToString();
+                }
+
+                m_MysqlConn.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                m_MysqlConn.Close();
+                MessageBox.Show(ex.Message);
+            }
+
+            return dt;
+        }
+
+        public DataTable SearchByDate(DateTime? issueDate = null, string searchType = "day")
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                MySQLConn();
+                m_MysqlConn.Open();
+
+                string query = "SELECT ID, mathe, khachhang, loaihang, nguoican, laixe, chungtu, dongia, ngaycapthe, sophieu, loaican FROM thecantudong WHERE 1=1";
+
+                if (issueDate.HasValue)
+                {
+                    if (searchType == "day")
+                    {
+                        query += " AND DAY(ngaycapthe) = @day";
+                    }
+                    else if (searchType == "month")
+                    {
+                        query += " AND MONTH(ngaycapthe) = @month";
+                    }
+                    else if (searchType == "year")
+                    {
+                        query += " AND YEAR(ngaycapthe) = @year";
+                    }
+                }
+
+                MySqlCommand cmd = new MySqlCommand(query, m_MysqlConn);
+
+                if (issueDate.HasValue)
+                {
+                    if (searchType == "day")
+                    {
+                        cmd.Parameters.AddWithValue("@day", issueDate.Value.Day);
+                    }
+                    else if (searchType == "month")
+                    {
+                        cmd.Parameters.AddWithValue("@month", issueDate.Value.Month);
+                    }
+                    else if (searchType == "year")
+                    {
+                        cmd.Parameters.AddWithValue("@year", issueDate.Value.Year);
+                    }
+                }
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                m_MysqlConn.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                m_MysqlConn.Close();
+                MessageBox.Show(ex.Message);
+            }
+
+            return dt;
         }
 
 

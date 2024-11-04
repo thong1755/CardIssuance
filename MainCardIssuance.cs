@@ -58,6 +58,7 @@ namespace CardIssuance
             LoadHangHoaToComboBox();
             LoadKhachHangToComboBox();
             LoadNguoiCanToComboBox();
+            LoadLoaiCanComboBox();
             ResizeColumns();
         }
 
@@ -86,6 +87,25 @@ namespace CardIssuance
             DataTable dt = database.Load_TheCanTuDong();
 
             listView1.Items.Clear(); // Xóa các mục hiện có trong ListView
+
+            foreach (DataRow row in dt.Rows)
+            {
+                ListViewItem item = new ListViewItem(row["ID"].ToString());
+                item.SubItems.Add(row["mathe"].ToString());
+                item.SubItems.Add(row["khachhang"].ToString());
+                item.SubItems.Add(row["loaihang"].ToString());
+                item.SubItems.Add(row["dongia"].ToString());
+                item.SubItems.Add(row["nguoican"].ToString());
+                item.SubItems.Add(row["laixe"].ToString());
+                item.SubItems.Add(row["chungtu"].ToString());
+
+                listView1.Items.Add(item);
+            }
+        }
+
+        public void LoadDataToListView(DataTable dt)
+        {
+            listView1.Items.Clear();
 
             foreach (DataRow row in dt.Rows)
             {
@@ -198,6 +218,13 @@ namespace CardIssuance
             }
         }
 
+        private void LoadLoaiCanComboBox()
+        {
+            cbLoaiCan.DataSource = DataConstant.listLoaiCan;
+            cbLoaiCan.DisplayMember = "TenLoaiCan"; 
+            cbLoaiCan.ValueMember = "MaLoaiCan"; 
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             var database = new MyDatabase(mLogin);
@@ -216,7 +243,9 @@ namespace CardIssuance
                 cbNguoiCan.Text.ToString(),
                 cbLaiXa.Text.ToString(),
                 txtChungTu.Text.ToString(),
-                DateTime.Now
+                DateTime.Now,
+                cbLoaiCan.SelectedValue.ToString()
+
             );
 
             if (database.AddTheTuDong(theTuDong))
@@ -224,6 +253,17 @@ namespace CardIssuance
                 LoadDataToListView();
                 MetroMessageBox.Show(this, "Đã thêm mã thẻ "+ theTuDong.MaThe.ToString() + " thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void clearForm()
+        {
+            txtMaThe.Text = "";
+            cbKhachHang.SelectedIndex = -1;
+            cbHangHoa.SelectedIndex = -1;
+            txtDonGia.Text = "";
+            cbNguoiCan.SelectedIndex = -1;
+            cbLaiXa.SelectedIndex = -1;
+            txtChungTu.Text = "";
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -235,13 +275,13 @@ namespace CardIssuance
                 return; // Thoát nếu không có hàng nào được chọn
             }
 
-            // Lấy ID từ hàng đã chọn
             int id = Convert.ToInt32(listView1.SelectedItems[0].Text); // Giả sử ID nằm ở cột đầu tiên
 
             if (database.DeleteTheTuDong(id))
             {
                 MetroMessageBox.Show(this,"Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadDataToListView(); // Cập nhật lại ListView sau khi xóa
+                clearForm();
             }
             else
             {
@@ -288,7 +328,8 @@ namespace CardIssuance
                 cbNguoiCan.Text,
                 cbLaiXa.Text,
                 txtChungTu.Text,
-                DateTime.Now // Ngày hiện tại (hoặc giữ nguyên nếu không cần thay đổi)
+                DateTime.Now,
+                cbLoaiCan.SelectedValue.ToString()
             );
 
             if (database.UpdateTheTuDong(id, theTuDong)) // Giả sử bạn có phương thức UpdateTheTuDong
@@ -304,6 +345,52 @@ namespace CardIssuance
 
         private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+            string cardNumber = txtSearchCard.Text;
+
+            if (rbMaSoThe.Checked)
+            {
+                if (cardNumber == "")
+                {
+                    MetroMessageBox.Show(this, "Vui lòng nhập mã thẻ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    var database = new MyDatabase(mLogin);
+
+                    DataTable dt = database.SearchCard(cardNumber);
+                    LoadDataToListView(dt);
+                }
+            }
+
+            if(rbNgay.Checked)
+            {
+                var database = new MyDatabase(mLogin);
+                DateTime issueDate = dateIssueCard.Value;
+                DataTable dt = database.SearchByDate(issueDate);
+                LoadDataToListView(dt);
+            }
+
+            if(rbThang.Checked)
+            {
+                var database = new MyDatabase(mLogin);
+                DateTime issueDate = dateIssueCard.Value;
+                DataTable dt = database.SearchByDate(issueDate, "month");
+                LoadDataToListView(dt);
+            }
+
+            if (rbNam.Checked)
+            {
+                var database = new MyDatabase(mLogin);
+                DateTime issueDate = dateIssueCard.Value;
+                DataTable dt = database.SearchByDate(issueDate, "year");
+                LoadDataToListView(dt);
+            }
 
         }
     }

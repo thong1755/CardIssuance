@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnThem = new MetroFramework.Controls.MetroButton();
+            this.btnSua = new MetroFramework.Controls.MetroButton();
+            this.btnThoat = new MetroFramework.Controls.MetroButton();
+            this.btnXoa = new MetroFramework.Controls.MetroButton();
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbHangHoa = new System.Windows.Forms.ComboBox();
@@ -50,28 +55,23 @@
             this.cbLoaiCan = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnThem = new MetroFramework.Controls.MetroButton();
-            this.btnSua = new MetroFramework.Controls.MetroButton();
-            this.btnThoat = new MetroFramework.Controls.MetroButton();
-            this.btnXoa = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
-            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
+            this.rbNam = new MetroFramework.Controls.MetroRadioButton();
+            this.rbNgay = new MetroFramework.Controls.MetroRadioButton();
+            this.rbThang = new MetroFramework.Controls.MetroRadioButton();
+            this.rbMaSoThe = new MetroFramework.Controls.MetroRadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.txtSearchCard = new System.Windows.Forms.TextBox();
+            this.dateIssueCard = new MetroFramework.Controls.MetroDateTime();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.metroRadioButton4 = new MetroFramework.Controls.MetroRadioButton();
-            this.metroRadioButton3 = new MetroFramework.Controls.MetroRadioButton();
+            this.btnSearch = new MetroFramework.Controls.MetroButton();
             this.listView1 = new System.Windows.Forms.ListView();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -125,6 +125,78 @@
             this.label10.Size = new System.Drawing.Size(64, 20);
             this.label10.TabIndex = 18;
             this.label10.Text = "Loại cân";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 4;
+            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel4, 2);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.Controls.Add(this.btnThem, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnSua, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnThoat, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnXoa, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 419);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(370, 46);
+            this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThem.Location = new System.Drawing.Point(3, 3);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(86, 40);
+            this.btnThem.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnThem.TabIndex = 0;
+            this.btnThem.Text = "THÊM";
+            this.btnThem.UseSelectable = true;
+            this.btnThem.UseStyleColors = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSua.Location = new System.Drawing.Point(187, 3);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(86, 40);
+            this.btnSua.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnSua.TabIndex = 3;
+            this.btnSua.Text = "SỬA";
+            this.btnSua.UseSelectable = true;
+            this.btnSua.UseStyleColors = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThoat.Location = new System.Drawing.Point(279, 3);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(88, 40);
+            this.btnThoat.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnThoat.TabIndex = 4;
+            this.btnThoat.Text = "THOÁT";
+            this.btnThoat.UseSelectable = true;
+            this.btnThoat.UseStyleColors = true;
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXoa.Location = new System.Drawing.Point(95, 3);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(86, 40);
+            this.btnXoa.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnXoa.TabIndex = 2;
+            this.btnXoa.Text = "XÓA";
+            this.btnXoa.UseSelectable = true;
+            this.btnXoa.UseStyleColors = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // txtDonGia
             // 
@@ -283,11 +355,6 @@
             this.cbLoaiCan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbLoaiCan.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbLoaiCan.FormattingEnabled = true;
-            this.cbLoaiCan.Items.AddRange(new object[] {
-            "Nhập kho",
-            "Xuất kho",
-            "Nhập tàu",
-            "Dịch vụ"});
             this.cbLoaiCan.Location = new System.Drawing.Point(153, 377);
             this.cbLoaiCan.Margin = new System.Windows.Forms.Padding(3, 13, 3, 4);
             this.cbLoaiCan.Name = "cbLoaiCan";
@@ -329,78 +396,6 @@
             this.tableLayoutPanel3.TabIndex = 1;
             this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
             // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 4;
-            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel4, 2);
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.Controls.Add(this.btnThem, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnSua, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnThoat, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnXoa, 1, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 419);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(370, 46);
-            this.tableLayoutPanel4.TabIndex = 1;
-            // 
-            // btnThem
-            // 
-            this.btnThem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnThem.Location = new System.Drawing.Point(3, 3);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(86, 40);
-            this.btnThem.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "THÊM";
-            this.btnThem.UseSelectable = true;
-            this.btnThem.UseStyleColors = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSua.Location = new System.Drawing.Point(187, 3);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(86, 40);
-            this.btnSua.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnSua.TabIndex = 3;
-            this.btnSua.Text = "SỬA";
-            this.btnSua.UseSelectable = true;
-            this.btnSua.UseStyleColors = true;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnThoat.Location = new System.Drawing.Point(279, 3);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(88, 40);
-            this.btnThoat.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnThoat.TabIndex = 4;
-            this.btnThoat.Text = "THOÁT";
-            this.btnThoat.UseSelectable = true;
-            this.btnThoat.UseStyleColors = true;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnXoa.Location = new System.Drawing.Point(95, 3);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(86, 40);
-            this.btnXoa.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnXoa.TabIndex = 2;
-            this.btnXoa.Text = "XÓA";
-            this.btnXoa.UseSelectable = true;
-            this.btnXoa.UseStyleColors = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -409,8 +404,8 @@
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel7, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.label6, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label8, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.textBox2, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.metroDateTime1, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.txtSearchCard, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.dateIssueCard, 1, 1);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 3);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 540);
@@ -429,10 +424,10 @@
             this.tableLayoutPanel5.SetColumnSpan(this.tableLayoutPanel7, 2);
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.metroRadioButton4, 1, 1);
-            this.tableLayoutPanel7.Controls.Add(this.metroRadioButton2, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.metroRadioButton3, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.metroRadioButton1, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.rbNam, 1, 1);
+            this.tableLayoutPanel7.Controls.Add(this.rbNgay, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.rbThang, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.rbMaSoThe, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 111);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -442,27 +437,51 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(370, 102);
             this.tableLayoutPanel7.TabIndex = 15;
             // 
-            // metroRadioButton2
+            // rbNam
             // 
-            this.metroRadioButton2.AutoSize = true;
-            this.metroRadioButton2.Location = new System.Drawing.Point(188, 13);
-            this.metroRadioButton2.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
-            this.metroRadioButton2.Name = "metroRadioButton2";
-            this.metroRadioButton2.Size = new System.Drawing.Size(55, 17);
-            this.metroRadioButton2.TabIndex = 1;
-            this.metroRadioButton2.Text = "Ngày";
-            this.metroRadioButton2.UseSelectable = true;
+            this.rbNam.AutoSize = true;
+            this.rbNam.Location = new System.Drawing.Point(188, 64);
+            this.rbNam.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
+            this.rbNam.Name = "rbNam";
+            this.rbNam.Size = new System.Drawing.Size(52, 17);
+            this.rbNam.TabIndex = 3;
+            this.rbNam.Text = "Năm";
+            this.rbNam.UseSelectable = true;
             // 
-            // metroRadioButton1
+            // rbNgay
             // 
-            this.metroRadioButton1.AutoSize = true;
-            this.metroRadioButton1.Location = new System.Drawing.Point(3, 13);
-            this.metroRadioButton1.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
-            this.metroRadioButton1.Name = "metroRadioButton1";
-            this.metroRadioButton1.Size = new System.Drawing.Size(83, 17);
-            this.metroRadioButton1.TabIndex = 0;
-            this.metroRadioButton1.Text = "Mã số thẻ";
-            this.metroRadioButton1.UseSelectable = true;
+            this.rbNgay.AutoSize = true;
+            this.rbNgay.Location = new System.Drawing.Point(188, 13);
+            this.rbNgay.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
+            this.rbNgay.Name = "rbNgay";
+            this.rbNgay.Size = new System.Drawing.Size(55, 17);
+            this.rbNgay.TabIndex = 1;
+            this.rbNgay.Text = "Ngày";
+            this.rbNgay.UseSelectable = true;
+            // 
+            // rbThang
+            // 
+            this.rbThang.AutoSize = true;
+            this.rbThang.Location = new System.Drawing.Point(3, 64);
+            this.rbThang.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
+            this.rbThang.Name = "rbThang";
+            this.rbThang.Size = new System.Drawing.Size(60, 17);
+            this.rbThang.TabIndex = 2;
+            this.rbThang.Text = "Tháng";
+            this.rbThang.UseSelectable = true;
+            // 
+            // rbMaSoThe
+            // 
+            this.rbMaSoThe.AutoSize = true;
+            this.rbMaSoThe.Checked = true;
+            this.rbMaSoThe.Location = new System.Drawing.Point(3, 13);
+            this.rbMaSoThe.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
+            this.rbMaSoThe.Name = "rbMaSoThe";
+            this.rbMaSoThe.Size = new System.Drawing.Size(83, 17);
+            this.rbMaSoThe.TabIndex = 0;
+            this.rbMaSoThe.TabStop = true;
+            this.rbMaSoThe.Text = "Mã số thẻ";
+            this.rbMaSoThe.UseSelectable = true;
             // 
             // label6
             // 
@@ -486,38 +505,25 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "Mã số thẻ";
             // 
-            // textBox2
+            // txtSearchCard
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(153, 13);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 13, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(220, 27);
-            this.textBox2.TabIndex = 10;
+            this.txtSearchCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSearchCard.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchCard.Location = new System.Drawing.Point(153, 13);
+            this.txtSearchCard.Margin = new System.Windows.Forms.Padding(3, 13, 3, 4);
+            this.txtSearchCard.Name = "txtSearchCard";
+            this.txtSearchCard.Size = new System.Drawing.Size(220, 27);
+            this.txtSearchCard.TabIndex = 10;
             // 
-            // metroDateTime1
+            // dateIssueCard
             // 
-            this.metroDateTime1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroDateTime1.Location = new System.Drawing.Point(153, 67);
-            this.metroDateTime1.Margin = new System.Windows.Forms.Padding(3, 13, 3, 4);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(220, 29);
-            this.metroDateTime1.TabIndex = 12;
-            // 
-            // metroButton1
-            // 
-            this.tableLayoutPanel6.SetColumnSpan(this.metroButton1, 2);
-            this.metroButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroButton1.Location = new System.Drawing.Point(3, 3);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(364, 43);
-            this.metroButton1.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton1.TabIndex = 13;
-            this.metroButton1.Text = "TÌM KIẾM";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.UseStyleColors = true;
+            this.dateIssueCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateIssueCard.Location = new System.Drawing.Point(153, 67);
+            this.dateIssueCard.Margin = new System.Windows.Forms.Padding(3, 13, 3, 4);
+            this.dateIssueCard.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dateIssueCard.Name = "dateIssueCard";
+            this.dateIssueCard.Size = new System.Drawing.Size(220, 29);
+            this.dateIssueCard.TabIndex = 12;
             // 
             // tableLayoutPanel6
             // 
@@ -525,7 +531,7 @@
             this.tableLayoutPanel5.SetColumnSpan(this.tableLayoutPanel6, 2);
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel6.Controls.Add(this.metroButton1, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.btnSearch, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 219);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -534,27 +540,19 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(370, 49);
             this.tableLayoutPanel6.TabIndex = 14;
             // 
-            // metroRadioButton4
+            // btnSearch
             // 
-            this.metroRadioButton4.AutoSize = true;
-            this.metroRadioButton4.Location = new System.Drawing.Point(188, 64);
-            this.metroRadioButton4.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
-            this.metroRadioButton4.Name = "metroRadioButton4";
-            this.metroRadioButton4.Size = new System.Drawing.Size(52, 17);
-            this.metroRadioButton4.TabIndex = 3;
-            this.metroRadioButton4.Text = "Năm";
-            this.metroRadioButton4.UseSelectable = true;
-            // 
-            // metroRadioButton3
-            // 
-            this.metroRadioButton3.AutoSize = true;
-            this.metroRadioButton3.Location = new System.Drawing.Point(3, 64);
-            this.metroRadioButton3.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
-            this.metroRadioButton3.Name = "metroRadioButton3";
-            this.metroRadioButton3.Size = new System.Drawing.Size(60, 17);
-            this.metroRadioButton3.TabIndex = 2;
-            this.metroRadioButton3.Text = "Tháng";
-            this.metroRadioButton3.UseSelectable = true;
+            this.tableLayoutPanel6.SetColumnSpan(this.btnSearch, 2);
+            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSearch.Location = new System.Drawing.Point(3, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(364, 43);
+            this.btnSearch.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnSearch.TabIndex = 13;
+            this.btnSearch.Text = "TÌM KIẾM";
+            this.btnSearch.UseSelectable = true;
+            this.btnSearch.UseStyleColors = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // listView1
             // 
@@ -562,9 +560,9 @@
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem10,
-            listViewItem11,
-            listViewItem12});
+            listViewItem4,
+            listViewItem5,
+            listViewItem6});
             this.listView1.Location = new System.Drawing.Point(403, 3);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(1012, 814);
@@ -585,9 +583,9 @@
             this.Load += new System.EventHandler(this.MainCardIssuance_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -623,18 +621,18 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
-        private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private System.Windows.Forms.TextBox txtSearchCard;
+        private MetroFramework.Controls.MetroDateTime dateIssueCard;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbLaiXa;
         private System.Windows.Forms.ComboBox cbLoaiCan;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton btnSearch;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton3;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton4;
+        private MetroFramework.Controls.MetroRadioButton rbNgay;
+        private MetroFramework.Controls.MetroRadioButton rbMaSoThe;
+        private MetroFramework.Controls.MetroRadioButton rbThang;
+        private MetroFramework.Controls.MetroRadioButton rbNam;
         private System.Windows.Forms.ListView listView1;
     }
 }

@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DataClass.cs" />
+    <Compile Include="Database\DataConstant.cs" />
     <Compile Include="Database\MyDatabase.cs" />
     <Compile Include="Database\TheTuDong.cs" />
     <Compile Include="MainCardIssuance.cs">

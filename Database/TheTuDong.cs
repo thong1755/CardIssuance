@@ -16,9 +16,10 @@ namespace CardIssuance.Database
         public string LaiXe { get; set; }
         public string ChungTu { get; set; }
         public DateTime NgayCapThe { get; set; }
+        public string LoaiCan { get; set; }
 
         // Constructor
-        public TheTuDong(string maThe, string khachHang, string loaiHang, int donGia, string nguoiCan, string laiXe, string chungTu, DateTime ngayCapThe)
+        public TheTuDong(string maThe, string khachHang, string loaiHang, int donGia, string nguoiCan, string laiXe, string chungTu, DateTime ngayCapThe, string loaiCan)
         {
             MaThe = maThe;
             KhachHang = khachHang;
@@ -28,6 +29,7 @@ namespace CardIssuance.Database
             LaiXe = laiXe;
             ChungTu = chungTu;
             NgayCapThe = ngayCapThe;
+            LoaiCan = loaiCan;
         }
     }
 }
